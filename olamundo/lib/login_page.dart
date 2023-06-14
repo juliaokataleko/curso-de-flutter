@@ -27,6 +27,11 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    Container(
+                      width: 200,
+                      height: 200,
+                      child: Image.network("https://png2.cleanpng.com/sh/39975e9f389b7b85c63b5b3d3068bc39/L0KzQYm3UsI0N5xqfZH0aYP2gLBuTgVvcaVqfJ98dHH3dcS0gB9ueKZ5feQ2c3XmhcPwlQkufJl3fdN9LXP8crb5lBFzbpJ3RdpuYXz3eH71hgR4d6NwRdVxYXnxPYboWcA3bWg7S6gEMHK7PoK9WMA0QWg6Sac6OUS0RIq3UsIzO2YziNDw/kisspng-united-states-computer-security-threat-cyberwarfar-health-network-chain-5a906e763690b8.1680397515194149022235.png")
+                    ),
                     TextField(
                       onChanged: (value) {
                         email = value;
