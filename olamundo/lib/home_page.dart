@@ -14,11 +14,41 @@ class HomePageState extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        drawer: Drawer(
+          child: Column(children: [
+            
+            UserAccountsDrawerHeader(
+              // currentAccountPicture: ClipRRect(
+              //   borderRadius: BorderRadius.circular(40),
+              //   child: Image.network("https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png")
+              // ),
+              currentAccountPicture: ClipOval(
+                child: Image.network("https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png")
+              ),
+              accountName: Text("JFK"), 
+              accountEmail: Text("juliofeli78@gmail.com")
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text("Home"),
+              subtitle: Text("Menu inicial"),
+              onTap: () {
+                print("Home");
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.logout),
+              title: Text("Logout"),
+              subtitle: Text("Terminar sessao"),
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed("/");
+              },
+            )
+          ]),
+        ),
         appBar: AppBar(
           title: Text("Tutorial de Flutter"),
-          actions: [
-            CustomSwitch()
-          ],
+          actions: [CustomSwitch()],
         ),
         body: Container(
           width: double.infinity,
@@ -37,7 +67,10 @@ class HomePageState extends State {
             crossAxisAlignment: CrossAxisAlignment.center,
             // scrollDirection: Axis.horizontal,
             children: [
-              Text("Contador: $counter", style: TextStyle(fontSize: 30.0),),
+              Text(
+                "Contador: $counter",
+                style: TextStyle(fontSize: 30.0),
+              ),
               Container(height: 50),
               CustomSwitch(),
               Container(height: 50),
@@ -52,7 +85,6 @@ class HomePageState extends State {
               )
             ],
           ),
-
         ),
 
         // Container(
@@ -78,17 +110,16 @@ class HomePageState extends State {
 }
 
 class CustomSwitch extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Switch(
-            value: AppController.instance.isDarkTheme,
-            onChanged: (value) {
-              // setState(() {
-              //   AppController.instance.isDarkTheme = value;
-              // });
-              AppController.instance.changeTheme();
-            },
-          );
+      value: AppController.instance.isDarkTheme,
+      onChanged: (value) {
+        // setState(() {
+        //   AppController.instance.isDarkTheme = value;
+        // });
+        AppController.instance.changeTheme();
+      },
+    );
   }
 }
